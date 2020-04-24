@@ -1,11 +1,7 @@
 console.log("We got a connection here");
-
-//need to create an event listener to get the specific
-//table cell that is clicked on. 
-//Need to have an alias set to placeX
-//(maybe have it toggle between booleans for "X" or "O")
-//When a cell is clicked, depending on the value of placeX
-//my function should place either an "x" or "o" in that cell
+//--------------------------------------//
+//function for placing either "X" or "O"//
+//-------------------------------------//
 
 let placeX = true;
 
@@ -26,3 +22,20 @@ function play (id) {
         placeX = !placeX;
     }
 }
+
+//--------------------------------------//
+//  function for resetting gameboard    //
+//-------------------------------------//
+
+function reset () {
+    var board = document.getElementById("gameboard");
+    var cells = board.getElementsByTagName("td");
+    console.log(cells);
+
+    for(var i = 0; i < cells.length; i ++) {
+        let cell = cells[i];
+        if (cell.textContent) {
+            cell.textContent = null;
+        }
+    }
+};
