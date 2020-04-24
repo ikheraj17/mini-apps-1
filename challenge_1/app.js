@@ -4,6 +4,7 @@ console.log("We got a connection here");
 //-----------------------------------------------------//
 
 let placeX = true;
+let counter = 0;
 
 function play (id) {
     if (placeX) {
@@ -62,7 +63,7 @@ function gameOver () {
 
    if (one == 'O' && two == three && three == one) {
     alert('O wins!');
-}
+   }
 
    if (four == 'X' && five == four && six == five) {
        alert('X wins!');
@@ -109,5 +110,26 @@ function gameOver () {
 
    //--------------- DIAGONAL LOGIC --------------------//
 
-   
+   if (one == 'X' && five == one && nine == five) {
+       alert('X wins!');
+   }
+
+   if (one == 'O' && five == one && nine == five) {
+    alert('O wins!');
+   }
+
+   if (three == 'X' && five == three && seven == five) {
+    alert('X wins!');
+   }
+
+   if (three == 'O' && five == three && seven == five) {
+ alert('O wins!');
+   } 
+
+   //-------------------- TIE GAME LOGIC ----------------//
+
+   if (counter == 9) {
+       alert('Tie game!');
+   }
+
 };
