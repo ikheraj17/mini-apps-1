@@ -7,17 +7,22 @@ let placeX = true;
 let counter = 0;
 
 function play (id) {
-    if (placeX) {
+    if(id.innerHTML != "X" && id.innerHTML != "O") {
 
-         id.innerHTML = "X";
-         placeX = !placeX;
+        if (placeX) {
 
-        } else {
-
-            id.innerHTML = "O";
+            id.innerHTML = "X";
             placeX = !placeX;
-
-        }
+   
+           } else {
+   
+               id.innerHTML = "O";
+               placeX = !placeX;
+   
+           }
+           counter ++;
+    }
+    
 };
 
 //--------------------------------------------------------------------------//
@@ -35,6 +40,7 @@ function reset () {
         }
     }
     placeX = true;
+    counter = 0;
 };
 
 //-----------------------------------------------------------------------------------//
