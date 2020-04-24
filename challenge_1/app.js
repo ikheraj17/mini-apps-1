@@ -41,25 +41,73 @@ function reset () {
 //-----------------------------------------------------------------------------------//
 
 function gameOver () {
+    //row 1 elements
    let one = document.getElementById('1').innerHTML;
    let two = document.getElementById('2').innerHTML;
    let three = document.getElementById('3').innerHTML;
-//    console.log(one.innerHTML + two.innerHTML + three.innerHTML);
+   //row 2 elements
    let four = document.getElementById('4').innerHTML;
    let five = document.getElementById('5').innerHTML;
-   let six= document.getElementById('6').innerHTML;
-   console.log(`element 4 ${four},   element 5 ${five},   element 6 ${six}`)
+   let six = document.getElementById('6').innerHTML;
+   //row 3 elements
+   let seven = document.getElementById('7').innerHTML;
+   let eight = document.getElementById('8').innerHTML;
+   let nine = document.getElementById('9').innerHTML;
 
-   if (one == 'X' &&)
+   //----------- ROW LOGIC ----------------------//
 
+   if (one == 'X' && two == three && three == one) {
+       alert('X wins!');
+   }
 
-
+   if (one == 'O' && two == three && three == one) {
+    alert('O wins!');
+}
 
    if (four == 'X' && five == four && six == five) {
-       alert('X wins');
+       alert('X wins!');
    }
 
    if (four == 'O' && five == four && six == five) {
-    alert('O wins');
-}
+    alert('O wins!');
+   }
+
+   if (seven == 'X' && eight == seven && nine == eight) {
+    alert('X wins!');   
+   }
+
+   if (seven == 'O' && eight == seven && nine == eight) {
+    alert('O wins!');   
+   }
+
+   //------------------ COLUMN LOGIC ------------------//
+
+   if (one == 'X' && four == one && seven == four) {
+       alert('X wins!');
+   }
+
+   if (one == 'O' && four == one && seven == four) {
+       alert('O wins!');
+   }
+
+   if (two == 'X' && five == two && eight == five) {
+       alert('X wins!');
+   }
+
+   if (two == 'O' && five == two && eight == five) {
+       alert('O wins!');
+   }
+
+   
+   if (three == 'X' && six == three && nine == six) {
+    alert('X wins!');
+   }
+
+   if (three == 'O' && six == three && nine == six) {
+    alert('O wins!');
+   }
+
+   //--------------- DIAGONAL LOGIC --------------------//
+
+   
 };
