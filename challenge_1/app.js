@@ -38,4 +38,5 @@ function reset () {
             cell.textContent = null;
         }
     }
+    placeX = true;
 };
