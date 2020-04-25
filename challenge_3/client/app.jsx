@@ -1,15 +1,22 @@
-import axios from 'axios';
-
 class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            display : <Form1 />,
-            formData : {
-                name: "Yeet",
-                email: "yeet@getyeeted.com"
+            display : null,
+            name : '',
+            email : null
         }
+        this.onNameChange = this.onNameChange.bind(this);
         }
+    
+
+   
+
+    onNameChange (e) {
+        console.log(e);
+        this.setState({
+            name : e.target.value
+        });
     }
 
     render () {
@@ -17,25 +24,22 @@ class App extends React.Component {
             <div>
                 <h1>Welcome to Shopper's Paradise</h1>
                 <div>{this.state.display}</div>
+                <Form1 onNameChange={this.onNameChange}/>
             </div>
         )
-    }
-
-    onCreateAccount () {
-
     }
 }
 
 
 
-let Form1 = () => 
+let Form1 = ({onNameChange}) => 
     (
-        <div>
-             <input type="text" placeholder="Name"></input>
+        <form>
+             <input type="text" placeholder="Name" onChange={onNameChange} />
             <input type="text" placeholder="Email"></input>
             <input type="text" placeholder="Password"></input>
             <button type="submit">Create Account</button>
-        </div>
+        </form>
     )
 
 let Form2 = () => 
