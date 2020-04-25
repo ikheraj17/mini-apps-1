@@ -7,6 +7,7 @@ app.use(bodyParser.text ());
 app.use(bodyParser.urlencoded({extended : true}));
 app.listen(process.env.port || port, () => {
     console.log(`Listening at http://localhost:${port}`);
-})
+});
+const mongoose = require('mongoose');
 
 
