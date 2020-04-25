@@ -9,7 +9,7 @@ app.listen(process.env.port || port, () => {
     console.log(`Listening at http://localhost:${port}`);
 });
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/fetcher', {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect('mongodb://localhost/fetcher', {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true});
 
 let repoSchema = mongoose.Schema({
     Name: String,
