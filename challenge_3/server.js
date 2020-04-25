@@ -10,8 +10,11 @@ app.listen(process.env.port || port, () => {
 });
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/fetcher', {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true});
+mongoose.connection.once('open', () => {
+    console.log("Database connected!");
+});
 
-let userSchema = mongoose.Schema({
+let userSchema =  new mongoose.Schema({
     Name: String,
     Email: {type : String, unique : true},
     Password: String,
@@ -25,9 +28,9 @@ let userSchema = mongoose.Schema({
     Expiry: String,
     CVV: Number,
     Bzip: Number
-});
+}, {collection: 'users'});
 
-let User = mongoose.model('User', userSchema, 'shopper');
+let User = mongoose.model('User', userSchema);
 
 //-------------------------------------------------//
 //---------------- ROUTES --------------------------//
