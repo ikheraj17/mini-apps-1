@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js",
-    "build": "babel client -d lib"
+    "build": "babel client -d lib --watch"
   },
   "author": "",
   "license": "ISC",
