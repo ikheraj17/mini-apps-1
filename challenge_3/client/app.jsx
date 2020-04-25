@@ -1,11 +1,14 @@
+import axios from 'axios';
+
 class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            test : <Confirmation />,
-            FormData : {
-                name : "Yeet"
-            }
+            display : <Form1 />,
+            formData : {
+                name: "Yeet",
+                email: "yeet@getyeeted.com"
+        }
         }
     }
 
@@ -13,13 +16,15 @@ class App extends React.Component {
         return (
             <div>
                 <h1>Welcome to Shopper's Paradise</h1>
-                <div>{this.state.test}</div>
+                <div>{this.state.display}</div>
             </div>
         )
     }
+
+    onCreateAccount () {
+
+    }
 }
-
-
 
 
 
@@ -59,7 +64,7 @@ let Form3 = () =>
 let Confirmation = () => 
 (
 <div>
-<div>{this.state.formData}</div>    
+<div></div>    
 <button type="submit">Purchase</button>
 </div>
 )
