@@ -37,7 +37,17 @@ class App extends React.Component {
 
     onForm1Submit (e) {
         e.preventDefault();
+        let name = this.state.name;
+        let email = this.state.email;
+        let pass = this.state.password;
+        let sendIt = {Name: name, Email: email, Password: pass}
+        console.log(sendIt);
+        $.post('/accounts', sendIt);
+       
         this.setState({counter : 2});
+        
+       
+        
     }
 
     render () {

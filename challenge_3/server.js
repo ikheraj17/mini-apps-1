@@ -10,7 +10,8 @@ app.listen(process.env.port || port, () => {
 });
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/fetcher', {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true});
-mongoose.connection.once('open', () => {
+const db = mongoose.connection;
+db.once('open', () => {
     console.log("Database connected!");
 });
 
@@ -39,3 +40,13 @@ let User = mongoose.model('User', userSchema);
 // app.post("/api/users", (req, res) => {
 // });
 
+app.post('/accounts',(req,res) => {
+    console.log(req.body);
+    
+    User.insertMany([req.body], (err, docs) => {
+        if (err) console.log(err);
+        else console.log("db insertion success!: ", docs);
+       
+    })
+    res.sendStatus(200);
+})
