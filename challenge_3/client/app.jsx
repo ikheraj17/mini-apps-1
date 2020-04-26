@@ -4,10 +4,13 @@ class App extends React.Component {
         this.state = {
             counter : 1,
             name : '',
-            email : null
+            email : '',
+            password : ''
             
         }
         this.onNameChange = this.onNameChange.bind(this);
+        this.onEmailChange = this.onEmailChange.bind(this);
+        this.onPasswordChange = this.onPasswordChange.bind(this);
         this.onForm1Submit = this.onForm1Submit.bind(this);
         }
     
@@ -20,6 +23,18 @@ class App extends React.Component {
         });
     }
 
+    onEmailChange (e) {
+        this.setState({
+            email : e.target.value
+        });
+    }
+
+    onPasswordChange (e) {
+        this.setState({
+            password : e.target.value
+        });
+    }
+
     onForm1Submit (e) {
         e.preventDefault();
         this.setState({counter : 2});
@@ -29,7 +44,10 @@ class App extends React.Component {
          if (this.state.counter === 1) {
              return <div>
                  <h1>Welcome to Shopper's Paradise</h1>
-                        <Form1 onNameChange={this.onNameChange} onForm1Submit={this.onForm1Submit}/>
+                        <Form1 onNameChange={this.onNameChange}
+                        onEmailChange={this.onEmailChange}
+                        onPasswordChange={this.onPasswordChange}
+                        onForm1Submit={this.onForm1Submit}/>
                         </div>
          }
 
@@ -69,14 +87,14 @@ class App extends React.Component {
 
 
 
-let Form1 = ({onNameChange, onForm1Submit}) => 
+let Form1 = ({onNameChange, onForm1Submit, onEmailChange, onPasswordChange}) => 
     (
-        <form>
-             <input type="text" placeholder="Name" onChange={onNameChange}  />
-            <input type="text" placeholder="Email"></input>
-            <input type="text" placeholder="Password"></input>
+        <div>
+             <input type="text" placeholder="Name" onChange={onNameChange}/>
+            <input type="text" placeholder="Email" onChange={onEmailChange}/>
+            <input type="text" placeholder="Password" onChange={onPasswordChange}/>
             <button type="button" onClick={onForm1Submit}>Create Account</button>
-        </form>
+        </div>
     )
 
 let Form2 = () => 
