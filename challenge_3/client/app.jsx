@@ -2,43 +2,80 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            display : null,
+            counter : 1,
             name : '',
             email : null
+            
         }
         this.onNameChange = this.onNameChange.bind(this);
+        this.onForm1Submit = this.onForm1Submit.bind(this);
         }
     
 
    
 
     onNameChange (e) {
-        console.log(e);
         this.setState({
             name : e.target.value
         });
     }
 
-    render () {
-        return (
-            <div>
-                <h1>Welcome to Shopper's Paradise</h1>
-                <div>{this.state.display}</div>
-                <Form1 onNameChange={this.onNameChange}/>
-            </div>
-        )
+    onForm1Submit (e) {
+        e.preventDefault();
+        this.setState({counter : 2});
     }
+
+    render () {
+         if (this.state.counter === 1) {
+             return <div>
+                 <h1>Welcome to Shopper's Paradise</h1>
+                        <Form1 onNameChange={this.onNameChange} onForm1Submit={this.onForm1Submit}/>
+                        </div>
+         }
+
+         if (this.state.counter === 2) {
+             return <div>
+                 <h1>Welcome to Shopper's Paradise</h1>
+                 <h3>Please Enter Your Shipping Details</h3>
+                 <Form2 />
+             </div>
+         }
+
+         if (this.state.counter === 3) {
+            return <div>
+                <h1>Welcome to Shopper's Paradise</h1>
+                <h3>Please Enter Your Payment Information</h3>
+                <Form3 />
+            </div>
+        }
+
+        if (this.state.counter === 4) {
+            return <div>
+                <h1>Welcome to Shopper's Paradise</h1>
+                <h3>Confirm Purchase</h3>
+                <Confirmation />
+            </div>
+        }
+
+    }
+    
+
+
+    
+
+
+    
 }
 
 
 
-let Form1 = ({onNameChange}) => 
+let Form1 = ({onNameChange, onForm1Submit}) => 
     (
         <form>
-             <input type="text" placeholder="Name" onChange={onNameChange} />
+             <input type="text" placeholder="Name" onChange={onNameChange}  />
             <input type="text" placeholder="Email"></input>
             <input type="text" placeholder="Password"></input>
-            <button type="submit">Create Account</button>
+            <button type="button" onClick={onForm1Submit}>Create Account</button>
         </form>
     )
 
@@ -68,7 +105,7 @@ let Form3 = () =>
 let Confirmation = () => 
 (
 <div>
-<div></div>    
+<div>What do I do here</div>    
 <button type="submit">Purchase</button>
 </div>
 )
