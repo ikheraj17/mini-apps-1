@@ -12,11 +12,13 @@ function play (id) {
         if (placeX) {
 
             id.innerHTML = "X";
+            id.style.color = "rgb(52, 227, 233)";
             placeX = !placeX;
    
            } else {
    
                id.innerHTML = "O";
+               id.style.color = "white";
                placeX = !placeX;
    
            }
@@ -39,6 +41,15 @@ function reset () {
             cell.textContent = null;
         }
     }
+    
+    document.getElementById('one').innerHTML = "tic";
+    document.getElementById('five').innerHTML = 'tac';
+    document.getElementById('nine').innerHTML = 'toe';
+
+    document.getElementById('one').style.color = "gray";
+    document.getElementById('five').style.color = 'gray';
+    document.getElementById('nine').style.color = 'gray';
+    one = 'tic';
     placeX = true;
     counter = 0;
 };
@@ -49,17 +60,17 @@ function reset () {
 
 function gameOver () {
     //row 1 elements
-   let one = document.getElementById('1').innerHTML;
-   let two = document.getElementById('2').innerHTML;
-   let three = document.getElementById('3').innerHTML;
+   let one = document.getElementById('one').innerHTML;
+   let two = document.getElementById('two').innerHTML;
+   let three = document.getElementById('three').innerHTML;
    //row 2 elements
-   let four = document.getElementById('4').innerHTML;
-   let five = document.getElementById('5').innerHTML;
-   let six = document.getElementById('6').innerHTML;
+   let four = document.getElementById('four').innerHTML;
+   let five = document.getElementById('five').innerHTML;
+   let six = document.getElementById('six').innerHTML;
    //row 3 elements
-   let seven = document.getElementById('7').innerHTML;
-   let eight = document.getElementById('8').innerHTML;
-   let nine = document.getElementById('9').innerHTML;
+   let seven = document.getElementById('seven').innerHTML;
+   let eight = document.getElementById('eight').innerHTML;
+   let nine = document.getElementById('nine').innerHTML;
 
    //----------- ROW LOGIC ----------------------//
 

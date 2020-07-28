@@ -8,8 +8,8 @@
             box-sizing: border-box;
         }
         
-        table, th, td {
-            border: 2px solid rgb(42, 108, 161);
+        table, td {
+            /* border: 4px solid white; */
             border-collapse: collapse;
             /* padding: 10%; */
             white-space: nowrap;
@@ -18,19 +18,39 @@
             width: auto;
         }
 
+
+        h1 {
+            color: white;
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+        }
+
         table {
-            height: 50%;
-            width: 60%;
-            background-color: white;
-            box-shadow: 10px 10px 5px;
+            height: 30%;
+            width: 45%;
+            background-color: gray;
             border-radius: 15px;
             table-layout: fixed;
         }
 
-        th, td {
+        /* td {
+            background-color: black;
+        } */
+
+        
+
+         td {
             font-weight:bold;
-            font-size: 20px;
+            font-size: 30px;
             padding: 10%;
+            color: white;
+            font-family: sans-serif;
+            text-align: center;
+        }
+
+        td:hover {
+            background-color: rgb(204, 204, 204);
         }
 
         tr {
@@ -38,14 +58,30 @@
             width: 1px;
         }
 
-        @media only screen and (min-width: 768px) {
+        #row2 {
+            border-top: 4px solid white;
+            border-bottom: 4px solid white;
+        }
+
+        #one, #four, #seven {
+            border-right: 4px solid white;
+        }
+
+        #two, #five, #eight {
+            border-right: 4px solid white;
+        }
+
+
+
+        @media only screen and (min-width: 900px) {
             .table-head {font-size: 40px}
-            td {font-size: 30px; width: 5px; min-width: 5px;}
-            table {height: 10px;}
+            td {font-size: 70px; width: 5px; min-width: 5px;}
+            table {width: 30%;}
+            h1 {font-size: 50px}
         }
 
         button {
-            background-color: red;
+            background-color: rgb(52, 227, 233);
             padding: 1%;
             margin-top: 5%;
             display: flex;
@@ -55,11 +91,12 @@
             width: 20%;
             font-size:25px;
             border-radius: 10%;
+            font-family: sans-serif;
             box-shadow: 5px 5px 5px black;
         }
 
         button:hover {
-            background-color: rgb(173, 3, 3);
+            background-color: rgb(5, 112, 161);
         }
 
        #container {
@@ -83,41 +120,41 @@
 
     </head>
     <body>
+        <h1>Tic Tac Toe</h1>
         <div id="container">
         <table id="gameboard">
          <tr>
-             <th colspan="3" class="table-head">Tic Tac Toe</th>
-         </tr>
-         <tr>
-             <td id='1' onClick="play(this), gameOver()">
+             <td id='one' style="color: gray" onClick="play(this), gameOver()">
+               Tic
              </td>
-
-             <td id='2' onClick="play(this), gameOver()">
+             <td id='two' onClick="play(this), gameOver()">
             </td>
-
-            <td id='3'  onClick="play(this), gameOver()">
+            
+            <td id='three'  onClick="play(this), gameOver()">
             </td>
 
          </tr>
          <tr id="row2">
-            <td  id='4' onClick="play(this), gameOver()">
+            <td  id='four' onClick="play(this), gameOver()">
             </td>
 
-            <td id='5'  onClick="play(this), gameOver()">
+            <td id='five' style="color: gray"  onClick="play(this), gameOver()">
+                Tac
            </td>
 
-           <td id='6' onClick="play(this), gameOver()">
+           <td id='six' onClick="play(this), gameOver()">
            </td>
 
         </tr>
         <tr id="row3">
-            <td  id='7' onClick="play(this), gameOver()">
+            <td  id='seven' onClick="play(this), gameOver()">
             </td>
 
-            <td id='8'  onClick="play(this), gameOver()">
+            <td id='eight'  onClick="play(this), gameOver()">
            </td>
 
-           <td id='9' onClick="play(this), gameOver()">
+           <td id='nine' style="color: gray" onClick="play(this), gameOver()">
+               Toe
            </td>
 
         </tr>
